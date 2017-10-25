@@ -1,0 +1,205 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+body{
+    overflow: hidden;
+}
+header{
+    margin: 0;
+    position: fixed;
+    width: 100vw;
+    height: 65px;
+    margin-top: 10px;
+    z-index: 5;
+}
+#loader{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #e6e6fa;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#loader h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    height: 100px;
+    width: auto;
+    font-size: 50px;
+}
+
+
+header h1{
+    height: 65px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0;
+    display: inline-block;
+    margin-left: 25px;
+}
+
+#menu{
+    height: 48px;
+    width: 50px;
+    background-color:  rgba(0, 0, 0, 0.6);
+    position: relative;
+    padding: 10px 10px;
+    float: right;
+    margin-right: 30px;
+    display: none;
+}
+
+#menu div{
+    height: 6px;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+nav{
+    display: inline-block;
+    margin: 0;
+    float: right;
+    margin-right: 30px;
+    
+}
+
+ul{
+    height: 60px;
+    margin: 0;
+    
+}
+#holder{
+    position: fixed;
+    left: 50%;
+    margin-left: -150px;
+}
+
+li{
+    display: inline-block;
+    padding: 15px 19px;
+    float: left;
+    
+}
+
+li:hover{
+    background-color: black;
+    color: white;
+    cursor:pointer;
+}
+
+.jumbotron{
+    height: 320px;
+    padding-bottom: 0;
+    
+}
+#banner{
+    margin-bottom: 0;
+}
+
+#top-jumbotron { 
+    margin-bottom: 0;
+}
+
+.jumbotron h1{
+    margin-top: 65px;
+    width: 300px;
+}
+
+p{
+    margin: 0 auto;
+}
+
+#content{
+    height: 100vh;
+    width: 100vw;
+    background-color: antiquewhite;
+    position: relative;
+}
+
+#line{
+    background-color: black;
+    color: black;
+    height: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+}
+
+#cont{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    height: 100px;
+    width: 300px;
+}
+
+#button{
+    background-color: black;
+    color: White; 
+    width: 100;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 10px 15px;
+    
+}
+
+#button:hover{
+    background-color: #323232;
+    cursor:pointer;
+    
+}
+
+#cont h1, #cont p{
+    text-align: center;
+    margin-bottom: 20px;
+}
+ #cont p{
+     width: 200px;
+     margin-left: auto;
+     margin-right: auto;
+}
+#map{
+     height: 500px;
+     width: 80%;
+    box-shadow: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid black 10px;
+    box-shadow: 0px 0px 28px 9px rgba(0,0,0,0.24);
+}
+#demo{
+    margin-top: 40px;
+}
+#mapper{
+    width: 100%;
+    height: calc(100% - 320px);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding-top: 30px;
+}
+#mapper h3{
+    margin-left: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+@media (max-width: 767px) {
+    ul{
+        display: none;
+    }
+    #holder{
+        margin-top: 20px;
+    }
+    #menu{
+        display: block;
+    }
+}

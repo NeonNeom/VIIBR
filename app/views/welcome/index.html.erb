@@ -1,0 +1,173 @@
+
+    <head lang ="en">
+    
+        <meta charset="utf-8">
+        <title>The HTML5 Herald</title>
+        <meta name="description" content="The HTML5 Herald">
+        <meta name="author" content="SitePoint">
+        <%= stylesheet_link_tag 'style'%>
+        <%= javascript_include_tag 'application' %>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    </head>
+    
+    <body>
+        <div id="loader">
+            <h1>VIIBR loading...</h1>
+        </div>
+        <header>
+            <h1>VIIBR</h1>
+            <nav>
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Portfolio</li>
+                    <li>Contact</li>
+                    <li>Max</li>
+                </ul>
+            </nav>
+            <div id="menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            
+        </header>
+        
+        
+        <div class="container-fluid jumbotron text-center" id="banner">
+                <div id="holder">
+                    <h1>VIIBR</h1>
+                    <p>We're <kbd>conntections</kbd>   are forged.</p>
+                </div>
+            
+        </div>
+        <div id="content">
+            
+            <div id= "line"></div>
+            
+                <div id="cont">
+                    <h1>Location Request</h1>
+                    <p>Are you sure you want to give you location away?</p>
+                   
+                    <div id= "button">Yes</div>
+                    
+                    
+                    <p id="demo"></p>
+                    <p id="demo2"></p>
+                </div>
+            
+                <div id="mapper">
+                    <h3 id ="fuck">My Google Maps Demo</h3>
+                    <div id="map"></div>
+                </div>
+            
+            
+        </div>
+        
+    <script>
+    
+        
+        
+    
+             $(document).on('turbolinks:load', function(){
+                
+                $("#cont").hide();
+                
+                var x = $("#demo");
+                var y = $("#demo2");
+                var logo = $("#holder");
+                
+               $('html,body').animate({scrollTop: document.body.scrollHeight},"slow");
+               
+               setTimeout( function ( ) {
+                    
+                    $("#loader h1").hide();
+                    
+                }, 1500);
+               
+                setTimeout( function ( ) {
+                    
+                    $("#loader").fadeOut('fast', function() {
+                       this.style.removeAttribute('filter');
+                    });
+                    
+                }, 1500);
+                
+                $("#button").click(function getLocation() {
+                    
+                    if (navigator.geolocation) {
+                        //navigator.geolocation.getCurrentPosition(showPosition);
+                        
+                        $('html,body').animate({scrollTop: 0},800, "swing");
+                    } else { 
+                        x.text("Geolocation is not supported by this browser.");
+                    }
+                });
+                        
+                function showPosition(position) {
+                    x.html("Latitude: " + position.coords.latitude + 
+                    "<br>Longitude: " + position.coords.longitude);
+                }
+                        
+                window.onscroll = function() {myFunction()};
+
+                function myFunction() {
+                        var scrollPosition = (document.documentElement.scrollTop||document.body.scrollTop);
+                        var scrollMaxHeight = document.body.scrollHeight - window.innerHeight;
+                        
+                        //$("#fuck").html(scrollPosition + " " + scrollMaxHeight);
+                        
+                        if(scrollPosition == scrollMaxHeight){
+                            
+                            $("#line").hide();
+                            $("#cont").show();
+                            $("li").css("border-bottom", 'solid 2px');
+                            $("#mapper").hide();
+                            
+                        }else{
+                            $("#line").show();
+                            $("#cont").hide();
+                            x.text("");
+                            $("li").css("border-bottom", 'none');
+                            $("#mapper").show();
+                        }
+                    
+
+                        logo.css("opacity", 1 - (scrollPosition/250));
+                        
+                        $("#mapper").css("opacity", 1 - (scrollPosition/100));
+
+                }
+
+            });
+            function myMap() {
+                var mapProp= {
+                    center:new google.maps.LatLng(35.3301529,-80.7325287),
+                    zoom:13,
+                    gestureHandling: 'greedy'
+                };
+                var map=new google.maps.Map(document.getElementById("map"),mapProp);
+            }
+            
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxj4RTelzXpiTIifc5gpFX4A_eATZitXg&callback=myMap"></script>
+
+        
+        
+    </body>
+
